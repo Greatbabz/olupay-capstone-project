@@ -1,5 +1,9 @@
 # OluPay 2.0 — AWS Capstone Project
 
+<p align="center">
+  <img src="./olupay_architecture_diagram.png" alt="OluPay AWS Architecture">
+</p>
+
 ![AWS Lambda](https://img.shields.io/badge/AWS-Lambda-FF9900?style=for-the-badge&logo=awslambda&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Aurora MySQL](https://img.shields.io/badge/AWS-Aurora_MySQL-4053D6?style=for-the-badge&logo=amazondynamodb&logoColor=white)
@@ -10,6 +14,16 @@
 > BaseStack Academy · AWS Cloud Accelerator · Cohort 1 · Capstone Project · Scenario A
 
 ---
+
+## Project Highlights
+
+- Designed a scalable payment platform for 2 million users
+- Built a serverless payment processing workflow using AWS Lambda
+- Implemented asynchronous messaging with Amazon SQS and SNS
+- Used Aurora MySQL for transactional data and DynamoDB for merchant data
+- Added ElastiCache Redis for low-latency OTP caching
+- Designed for high availability across multiple Availability Zones
+- Estimated steady-state operating cost under $200/month
 
 ## Overview
 
@@ -208,10 +222,11 @@ olupay-send-notification:  Triggered by SQS
 
 ## Source Code
 
-| Component | File |
-|-----------|------|
+| AWS Component | Implementation |
+|--------------|----------------|
 | Payment Processing Lambda | [lambda_process_payment.py](./lambda_process_payment.py) |
 | Notification Lambda | [lambda_send_notification.py](./lambda_send_notification.py) |
+| Architecture Diagram | [olupay_architecture_diagram.png](./olupay_architecture_diagram.png) |
 
 Update these values in `lambda_process_payment.py`:
 ```python
@@ -304,7 +319,7 @@ curl -X POST https://e01nkvn4r0.execute-api.us-east-1.amazonaws.com/payments \
 ```
 olupay-capstone/
 ├── README.md
-├── architecture-diagram.png
+├── olupay_architecture_diagram.png
 ├── lambda_process_payment.py
 └── lambda_send_notification.py
 ```
@@ -318,3 +333,7 @@ Built as part of the **BaseStack Academy AWS Cloud Accelerator** — Cohort 1 Ca
 Live API: `https://e01nkvn4r0.execute-api.us-east-1.amazonaws.com/payments`
 
 > Built by Oluwatoba Babalola | [X / Twitter](https://x.com/Itz_Greatbabz) | [Portfolio](http://olupay-capstone-bucket-070340244863-us-east-1-an.s3-website-us-east-1.amazonaws.com)
+
+## Skills Demonstrated
+
+AWS • VPC • EC2 • Auto Scaling • Application Load Balancer • Aurora MySQL • DynamoDB • Lambda • API Gateway • SQS • SNS • ElastiCache Redis • S3 • CloudWatch • IAM • Infrastructure Design • Cost Optimization • High Availability • Serverless Architecture
