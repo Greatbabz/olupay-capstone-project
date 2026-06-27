@@ -35,53 +35,32 @@ OluPay has grown from 400,000 to 2 million users across Nigeria. The old infrast
 
 ## Architecture
 
-```
-Internet / Client
-       │
-       ▼
-Application Load Balancer (olupay-alb)
-       │
-  ─────┴──────────────────────────────────
-  │                                       │
-  ▼                                       ▼
-EC2 Web Tier (ASG)              API Gateway HTTP API
-t2.micro · CPU 60% scale        POST /payments
-  │                                       │
-  │                                       ▼
-  │                            Lambda: ProcessPayment
-  │                              │        │
-  │                              ▼        ▼
-  │                           Aurora    DynamoDB
-  │                           MySQL     Merchant
-  │                           Ledger    Catalogue
-  │                              │
-  │                              ▼
-  │                            SQS: PaymentProcessingQueue
-  │                              │
-  │                              ▼
-  │                            Lambda: SendNotification
-  │                              │
-  │                              ▼
-  │                            SNS: OluTech-Alerts
-  │                              │
-  │                              ▼
-  │                            Email notification
-  │
-  ├── ElastiCache Redis (OTP cache · TTL 5 min)
-  ├── S3 (financial reports · versioning · SSE · CRR)
-  └── CloudWatch (dashboard · alarms · Logs Insights)
-
-All services sit inside a custom VPC (10.0.0.0/16)
-across 2 AZs with least-privilege IAM roles.
-```
-
-## Solution Architecture
-
 <p align="center">
   <img src="./olupay_architecture_diagram.png" alt="OluPay AWS Architecture" width="1000">
 </p>
 
-The architecture uses API Gateway, Lambda, SQS, SNS, Aurora MySQL, DynamoDB, ElastiCache Redis, CloudWatch, and S3 to deliver a highly available and scalable payment platform.
+### Request Flow
+
+1. Client sends payment request through API Gateway.
+2. Lambda ProcessPayment validates and processes the transaction.
+3. Aurora MySQL stores transaction records.
+4. DynamoDB stores merchant metadata.
+5. Payment events are published to Amazon SQS.
+6. Lambda SendNotification consumes the queue.
+7. Amazon SNS sends notifications.
+8. CloudWatch provides monitoring and alerting.
+
+### Infrastructure Highlights
+
+- Multi-AZ VPC deployment
+- Auto Scaling EC2 web tier
+- Aurora MySQL transaction ledger
+- DynamoDB merchant catalogue
+- ElastiCache Redis OTP caching
+- Amazon SQS asynchronous processing
+- Amazon SNS notifications
+- S3 financial report storage
+- CloudWatch monitoring and alarms
 
 ---
 
