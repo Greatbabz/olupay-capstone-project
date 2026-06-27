@@ -61,9 +61,13 @@ All services sit inside a custom VPC (10.0.0.0/16)
 across 2 AZs with least-privilege IAM roles.
 ```
 
-## Architecture Diagram
+## Solution Architecture
 
-![OluPay Architecture](./architecture-diagram.png)
+<p align="center">
+  <img src="./architecture-diagram.png" alt="OluPay AWS Architecture" width="1000">
+</p>
+
+The architecture uses API Gateway, Lambda, SQS, SNS, Aurora MySQL, DynamoDB, ElastiCache Redis, CloudWatch, and S3 to deliver a highly available and scalable payment platform.
 
 ---
 
