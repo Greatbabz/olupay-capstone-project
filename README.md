@@ -1,9 +1,5 @@
 # OluPay 2.0 — AWS Capstone Project
 
-<p align="center">
-  <img src="./olupay_architecture_diagram.png" alt="OluPay AWS Architecture">
-</p>
-
 ![AWS Lambda](https://img.shields.io/badge/AWS-Lambda-FF9900?style=for-the-badge&logo=awslambda&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Aurora MySQL](https://img.shields.io/badge/AWS-Aurora_MySQL-4053D6?style=for-the-badge&logo=amazondynamodb&logoColor=white)
