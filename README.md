@@ -61,7 +61,9 @@ All services sit inside a custom VPC (10.0.0.0/16)
 across 2 AZs with least-privilege IAM roles.
 ```
 
-![Architecture Diagram](architecture-diagram.png)
+## Architecture Diagram
+
+![OluPay Architecture](./architecture-diagram.png)
 
 ---
 
