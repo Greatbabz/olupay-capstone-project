@@ -64,7 +64,7 @@ across 2 AZs with least-privilege IAM roles.
 ## Solution Architecture
 
 <p align="center">
-  <img src="./architecture-diagram.png" alt="OluPay AWS Architecture" width="1000">
+  <img src="./olupay_architecture_diagram.png" alt="OluPay AWS Architecture" width="1000">
 </p>
 
 The architecture uses API Gateway, Lambda, SQS, SNS, Aurora MySQL, DynamoDB, ElastiCache Redis, CloudWatch, and S3 to deliver a highly available and scalable payment platform.
@@ -205,6 +205,13 @@ olupay-process-payment:    Handles POST /payments
 olupay-send-notification:  Triggered by SQS
                            Publishes to SNS
 ```
+
+## Source Code
+
+| Component | File |
+|-----------|------|
+| Payment Processing Lambda | [lambda_process_payment.py](./lambda_process_payment.py) |
+| Notification Lambda | [lambda_send_notification.py](./lambda_send_notification.py) |
 
 Update these values in `lambda_process_payment.py`:
 ```python
