@@ -202,12 +202,12 @@ olupay-send-notification:  Triggered by SQS
 
 Update these values in `lambda_process_payment.py`:
 ```python
-QueueUrl = 'https://sqs.us-east-1.amazonaws.com/070340244863/PaymentProcessingQueue'
+QueueUrl = 'https://sqs.us-east-1.amazonaws.com/YOUR_ID/PaymentProcessingQueue'
 ```
 
 Update this value in `lambda_send_notification.py`:
 ```python
-TopicArn = 'arn:aws:sns:us-east-1:070340244863:OluTech-Alerts'
+TopicArn = 'arn:aws:sns:us-east-1:YOUR_ID:OluTech-Alerts'
 ```
 
 ### Step 6 — API Gateway
